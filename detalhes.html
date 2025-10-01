@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Ataque</title>
+  <link rel="stylesheet" href="estilo-detalhes.css">
+</head>
+
+<body>
+  <h1 id="titulo" style="text-align:center; margin-bottom:30px;"></h1>
+
+  <div class="detalhes-container" id="detalhes"></div>
+
+  <div class="back-button">
+    <button onclick="voltar()">Voltar ao Menu Principal</button>
+  </div>
+
+  <script>
+    const ataque = JSON.parse(localStorage.getItem('ataqueSelecionado'));
+    const container = document.getElementById('detalhes');
+    const titulo = document.getElementById('titulo');
+
+    if (ataque) {
+      //titulo.innerHTML = `🛡️ Detalhes sobre ${ataque.tipo}`;
+	  titulo.innerHTML = `${ataque.icone} Informações sobre ${ataque.tipo}`;
+
+      container.style.borderColor = ataque.cor.toLowerCase();
+      container.innerHTML = `
+        <h2 style="color:${ataque.cor.toLowerCase()}; text-align:center;">DETALHES</h2>
+        <p><strong>Categoria:</strong> ${ataque.categoria}</p>
+        <p><strong>Resumo:</strong> ${ataque.resumo}</p>
+        <p><strong>Ferramentas:</strong> ${ataque.ferramentas.join(', ')}</p>
+        <p><strong>Exemplo:</strong> ${ataque.exemplo}</p>
+        <p><strong>Notas:</strong> ${ataque.notas}</p>
+      `;
+    } else {
+      titulo.textContent = "🛡️ Nenhum ataque selecionado";
+      container.innerHTML = "<p style='text-align:center;'>Por favor, volte ao menu principal e selecione um ataque.</p>";
+    }
+
+    function voltar() {
+      window.location.href = 'ataques.html';
+    }
+  </script>
+</body>
+</html>

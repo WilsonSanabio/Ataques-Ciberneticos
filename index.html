@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Ataques Cibernéticos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+  <h1>Ataques Cibernéticos</h1>
+
+  <div id="attackContainer"></div>
+
+  <div id="shutdown-button">
+    <button onclick="encerrarServidor()">Encerrar Servidor</button>
+  </div>
+
+  <div id="footer">
+    <p><i>Sana/Bios Informática & Consultoria [2025]</i></p>
+    <small>&copy; 2025 Wilson Sanabio.</small>
+  </div>
+
+  <script>
+    let ataques = [];
+
+    fetch('ataques.json')
+      .then(response => response.json())
+      .then(json => {
+        ataques = json;
+        renderPorCategoria();
+      });
+
+    function renderPorCategoria() {
+      const container = document.getElementById('attackContainer');
+      container.innerHTML = '';
+
+      const categorias = [...new Set(ataques.map(a => a.categoria))].sort();
+
+      categorias.forEach(categoria => {
+        const label = document.createElement('div');
+        label.className = 'categoria-label';
+        label.textContent = categoria;
+        container.appendChild(label);
+
+        const grid = document.createElement('div');
+        grid.className = 'attack-grid';
+
+        const ataquesFiltrados = ataques
+          .filter(a => a.categoria === categoria)
+          .sort((a, b) => a.tipo.localeCompare(b.tipo));
+
+        ataquesFiltrados.forEach((ataque) => {
+          const card = document.createElement('div');
+          card.className = 'attack-card';
+          card.innerHTML = `<div style="font-size: 1.5em;">${ataque.icone}</div><div>${ataque.tipo}</div>`;
+		  //card.innerHTML = `<div style="font-size: 2em;">${ataque.icone}</div>`;
+
+          card.onclick = () => abrirDetalhes(ataque);
+          grid.appendChild(card);
+        });
+
+        container.appendChild(grid);
+      });
+    }
+
+    function abrirDetalhes(ataque) {
+      localStorage.setItem('ataqueSelecionado', JSON.stringify(ataque));
+      window.location.href = 'detalhes.html';
+    }
+
+    function encerrarServidor() {
+      fetch('/encerrar', { method: 'POST' })
+        .then(() => alert("Servidor encerrado. Você pode fechar esta aba."))
+        .catch(() => alert("Erro ao tentar encerrar o servidor."));
+    }
+  </script>
+</body>
+</html>

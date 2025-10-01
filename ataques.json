@@ -1,0 +1,265 @@
+[
+  {
+    "icone": "🔐",
+    "tipo": "Brute Force",
+    "categoria": "Autenticação",
+    "cor": "Vermelho",
+    "resumo": "Tentativas repetidas de senha até encontrar a correta.",
+    "ferramentas": ["Hydra", "John the Ripper"],
+    "exemplo": "Ataque automatizado tentando milhares de senhas.",
+    "notas": "Pode ser mitigado com bloqueio por tentativas e CAPTCHA."
+  },
+  
+  {
+    "icone": "🧾",
+    "tipo": "Credential Stuffing",
+    "categoria": "Autenticação",
+    "cor": "Azul",
+    "resumo": "Uso de credenciais vazadas para acessar outras contas.",
+    "ferramentas": ["Snipr", "Sentry MBA"],
+    "exemplo": "Ataque ao PayPal em 2022 comprometeu 35 mil contas.",
+    "notas": "Explora reutilização de senhas."
+  },
+  
+  {
+    "icone": "🧩",
+    "tipo": "IDOR (Insecure Direct Object Reference)",
+    "categoria": "Autorização",
+    "cor": "Azul",
+    "resumo": "Acesso indevido a dados por manipulação direta de identificadores.",
+    "ferramentas": ["Burp Suite; OWASP ZAP"],
+    "exemplo": "Alterar profile?id=123 para profile?id=124 e acessar dados de outro usuário.",
+    "notas": "Comum em URLs e APIs mal protegidas."
+  },
+  
+  {
+    "icone": "🌐",
+    "tipo": "DDoS (Distributed Denial of Service)",
+    "categoria": "Disponibilidade",
+    "cor": "Vermelho",
+    "resumo": "Sobrecarrega de servidores com tráfego falso.",
+    "ferramentas": ["Cloudflare Radar; LOIC; Arbor Networks"],
+    "exemplo": "Ataque à GitHub em 2018 com 1.35 Tbps de tráfego.",
+    "notas": "Pode ser mitigado com serviços de proteção de rede."
+  },
+
+  {
+    "icone": "🎣",
+    "tipo": "Phishing",
+    "categoria": "Engenharia Social",
+    "cor": "Vermelho",
+    "resumo": "Engana usuários para revelar informações sensíveis.",
+    "ferramentas": ["PhishTank; Gophish; Cofense; KnowBe4"],
+    "exemplo": "E-mail falso do banco pedindo atualização de senha via link malicioso.",
+    "notas": "Pode ser combinado com malware ou páginas falsas."
+  },
+  
+  {
+    "icone": "🧠",
+    "tipo": "Social Engineering",
+    "categoria": "Engenharia Social",
+    "cor": "Roxo",
+    "resumo": "Manipulação psicológica para obter acesso ou informações.",
+    "ferramentas": ["SET; KnowBe4"],
+    "exemplo": "Golpista se passando por técnico de TI pedindo senha por telefone.",
+    "notas": "Pode ser combinado com phishing ou vishing."
+  },
+  
+  {
+    "icone": "🕳️",
+    "tipo": "Zero-Day Exploit",
+    "categoria": "Exploração",
+    "cor": "Preto",
+    "resumo": "Explora falhas desconhecidas antes de correção.",
+    "ferramentas": ["Cuckoo Sandbox; ExploitDB; CISA KEV Catalog"],
+    "exemplo": "Stuxnet usou zero-days para atacar sistemas industriais iranianos.",
+    "notas": "Difícil de detectar e mitigar."
+  },
+
+  {
+    "icone": "🕸️",
+    "tipo": "Session Hijacking",
+    "categoria": "Autenticação",
+    "cor": "Cinza",
+    "resumo": "Roubo de sessão ativa para assumir identidade.",
+    "ferramentas": ["Burp Suite", "OWASP ZAP"],
+    "exemplo": "Captura de cookie de sessão em rede pública.",
+    "notas": "Pode ser evitado com cookies seguros e HTTPS."
+  },
+
+  {
+    "icone": "🧮️",
+    "tipo": "SQL Injection",
+    "categoria": "Injeção XML",
+    "cor": "Azul",
+    "resumo": "Injeção de comandos SQL maliciosos em campos de entrada.",
+    "ferramentas": ["sqlmap; Havij; Burp Suite"],
+    "exemplo": "' OR '1'='1 usado para acessar dados sem autenticação.",
+    "notas": "Pode comprometer todo o banco de dados."
+  },
+
+  {
+    "icone": "🖥️",
+    "tipo": "XSS (Cross-Site Scripting)",
+    "categoria": "Injeção XML",
+    "cor": "Amarelo",
+    "resumo": "Injeção de scripts maliciosos em páginas web.",
+    "ferramentas": ["OWASP ZAP; XSS Hunter"],
+    "exemplo": "Comentário com <script>alert('XSS')</script> que executa no navegador.",
+    "notas": "Pode roubar cookies ou redirecionar usuários."
+  },
+
+  {
+    "icone": "🧩",
+    "tipo": "XXE (XML External Entity)",
+    "categoria": "Injeção XML",
+    "cor": "Roxo",
+    "resumo": "Processamento inseguro de entidades externas em XML.",
+    "ferramentas": ["Burp Suite; OWASP ZAP; Hackvertor; Postman"],
+    "exemplo": "XML com <!ENTITY xxe SYSTEM 'file:///etc/passwd'> retorna conteúdo sensível.",
+    "notas": "Pode acessar arquivos locais e credenciais de nuvem."
+  },
+
+  {
+    "icone": "🧑‍💻",
+    "tipo": "MitM (Man-in-the-Middle)",
+    "categoria": "Interceptação",
+    "cor": "Cinza",
+    "resumo": "Intercepta comunicação entre duas partes.",
+    "ferramentas": ["Wireshark; Ettercap"],
+    "exemplo": "Captura de dados em Wi-Fi público sem criptografia.",
+    "notas": "Pode ser evitado com HTTPS e VPN."
+  },
+
+ {
+    "icone": "📢",
+    "tipo": "Adware",
+    "categoria": "Malware",
+    "cor": "Laranja",
+    "resumo": "Exibe anúncios indesejados para gerar receita.",
+    "ferramentas": ["AdwCleaner; Malwarebytes"],
+    "exemplo": "Pop-ups constantes após instalação de programa gratuito.",
+    "notas": "Pode afetar desempenho do sistema."
+  },
+
+  {
+    "icone": "🚗",
+    "tipo": "Drive-by Download",
+    "categoria": "Malware",
+    "cor": "Laranja",
+    "resumo": "Download automático de malware ao visitar sites.",
+    "ferramentas": ["BeEF; Bitdefender"],
+    "exemplo": "Usuário acessa site infectado e instala trojan bancário.",
+    "notas": "Pode ser evitado com navegador atualizado e antivírus."
+  },
+
+ {
+    "icone": "🎹",
+    "tipo": "Keylogger",
+    "categoria": "Malware",
+    "cor": "Vermelho",
+    "resumo": "Registra todas as teclas digitadas.",
+    "ferramentas": ["SpyShelter; Zemana AntiLogger"],
+    "exemplo": "Captura de login bancário digitado no teclado.",
+    "notas": "Pode ser físico ou digital."
+  },
+
+  {
+    "icone": "🐛",
+    "tipo": "Malware",
+    "categoria": "Malware",
+    "cor": "Cinza",
+    "resumo": "Software malicioso que compromete sistemas.",
+    "ferramentas": ["VirusTotal; Kaspersky Threat Intelligence"],
+    "exemplo": "Arquivo .exe infectado que instala spyware.",
+    "notas": "Termo genérico que inclui trojans, worms, etc."
+  },
+
+  {
+    "icone": "🛑",
+    "tipo": "Ransomware",
+    "categoria": "Malware",
+    "cor": "Preto",
+    "resumo": "Criptografa dados e exige pagamento para desbloqueio.",
+    "ferramentas": ["Malwarebytes; SentinelOne"],
+    "exemplo": "WannaCry atacou sistemas hospitalares em 2017.",
+    "notas": "Pode causar paralisação de serviços críticos."
+  },
+
+  {
+    "icone": "🧬",
+    "tipo": "Rootkit",
+    "categoria": "Malware",
+    "cor": "Preto",
+    "resumo": "Se oculta no sistema para manter acesso privilegiado.",
+    "ferramentas": ["GMER; chkrootkit"],
+    "exemplo": "Rootkit da Sony BMG escondia arquivos para impedir cópia de CDs.",
+    "notas": "Difícil de detectar com antivírus comuns."
+  },
+
+  {
+    "icone": "🕵️",
+    "tipo": "Spyware",
+    "categoria": "Malware",
+    "cor": "Roxo",
+    "resumo": "Monitora e coleta informações sem consentimento.",
+    "ferramentas": ["Spybot Search & Destroy; Norton Power Eraser"],
+    "exemplo": "Registra histórico de navegação e envia para terceiros.",
+    "notas": "Pode ser instalado junto com softwares legítimos."
+  },
+
+  {
+    "icone": "🐴",
+    "tipo": "Trojan Horse",
+    "categoria": "Malware",
+    "cor": "Marrom",
+    "resumo": "Disfarçado de software legítimo, permite acesso remoto.",
+    "ferramentas": ["Windows Defender; ESET"],
+    "exemplo": "Jogo gratuito que instala backdoor no sistema.",
+    "notas": "Pode ser usado para controle total do sistema."
+  },
+
+  {
+    "icone": "🛑️",
+    "tipo": "Worm",
+    "categoria": "Malware",
+    "cor": "Verde",
+    "resumo": "Se replica automaticamente e se espalha por redes.",
+    "ferramentas": ["Wireshark; Snort"],
+    "exemplo": "Conficker infectou milhões de computadores via rede em 2008.",
+    "notas": "Não precisa de interação humana para se espalhar."
+  },
+
+  {
+    "icone": "🕵️‍♂️",
+    "tipo": "Esteganografia",
+    "categoria": "Ocultação",
+    "cor": "Azul",
+    "resumo": "Oculta informações em arquivos aparentemente inofensivos.",
+    "ferramentas": ["Steghide; OpenStego; ExifTool; StegExpose"],
+    "exemplo": "Mensagem escondida em imagem usando LSB.",
+    "notas": "Usada tanto para proteção quanto para ataques."
+  },
+
+{
+    "icone": "🧪",
+    "tipo": "DNS Spoofing",
+    "categoria": "Redirecionamento",
+    "cor": "Azul",
+    "resumo": "Manipula registros DNS para redirecionar usuários.",
+    "ferramentas": ["dnsspoof; DNSChef"],
+    "exemplo": "Usuário digita banco.com e é levado a site falso.",
+    "notas": "Pode ser mitigado com DNSSEC."
+  },
+
+  {
+    "icone": "🕵️‍♂️",
+    "tipo": "SSRF (Server-Side Request Forgery)",
+    "categoria": "Requisição Interna",
+    "cor": "Vermelho",
+    "resumo": "Forja requisições feitas pelo servidor para acessar recursos internos.",
+    "ferramentas": ["Burp Suite; OWASP ZAP"],
+    "exemplo": "Manipula campo de URL para acessar http://localhost/admin.",
+    "notas": "Pode expor serviços internos e metadados de nuvem."
+  }
+]
